@@ -23,13 +23,15 @@
     height: 100%;
     position: absolute;
     object-position: center;
+    display: none;
 }
 .current_image_container > .text_section{
     position: absolute;
     bottom: 10px;
     right: 10px;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: right;
+    display: none;
 }
 
 .image_list_container{
@@ -42,3 +44,6 @@
     width: 100%;
 }
 
+.display_block{
+    display: inline-block;
+}
