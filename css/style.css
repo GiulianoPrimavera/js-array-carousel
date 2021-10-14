@@ -3,10 +3,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body{
+    padding: 100px;
+    background-color: lightblue;
+}
 
 .container{
-    width: 100vw;
+    width: 100%;
     border: 1px solid;
     height: 500px;
     display: flex;
@@ -85,5 +88,5 @@ img.display_block{
 
 /** creo la classe per evidenziare le immagini della lista laterale */
 .highlighted{
-    border: 5px solid lightblue;
+    border: 10px solid rgb(117, 192, 218);
 }
