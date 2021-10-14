@@ -88,5 +88,5 @@ img.display_block{
 
 /** creo la classe per evidenziare le immagini della lista laterale */
 .highlighted{
-    border: 10px solid rgb(117, 192, 218);
+    border: 10px solid rgb(218, 146, 117);
 }
