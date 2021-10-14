@@ -35,15 +35,42 @@
 }
 
 .image_list_container{
-    width: 20%;
     border: 1px solid black;
     min-height: 100%;
     overflow: auto;
+    width: 100%;
+    height: 100%;
 }
+.arrow_container{
+    width: 20%;
+    position: relative;
+    text-align: center;
+}
+
 .image_list_container > img{
     width: 100%;
 }
 
+
+
 .display_block{
     display: inline-block;
+}
+
+
+/** cereo le freccie di scorrimento delle immagini */
+.arrow{
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 30px;
+    width: 100%;
+    position: absolute;
+    display: inline-block;
+    color: white;
+    line-height: 30px;
+}
+.upward_arrow{
+    top: 0;
+}
+.downward_arrow{
+    bottom: 0;
 }
