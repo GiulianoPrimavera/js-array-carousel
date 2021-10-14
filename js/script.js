@@ -28,20 +28,35 @@ const currentImageContainer = document.querySelector (".current_image_container"
 //dichiaro una variabile che si riferisce al container laterale delle immagini in miniatura
 const imageListContainer = document.querySelector(".image_list_container")
 
+//creo una variabile che tenga conto della "posizione" iniziale, ossia di quale immagine voglio mostrare all'avvio del sito (senza questo tutte le immagini sono in display none)
+let currentIndex = 0;
+
 //creo un ciclo che mette le immagini nell'html
 for(let i = 0; i < items.length && i < title.length && i < text.length ; i++){
-    //assegno all'immagine corrente una variabile
+    //assegno all'immagine, titolo e testo corrente una variabile
     const currentImage = items[i];
     const currentTitle = title[i];
     const currentText = text[i];
     
+    //creo una varibile a cui posso assegnare un valore(stringa), uguale alla classe con display block creata da me in css
+    let classDaUsare = "";
+    
+    //nel caso l'indice ciclato sia uguale al currentIndex, deciso da me fuori dal ciclo "for",
+    //allora assegno a questa variabile la stringa uguale alla classe con display block creata in css
+    if (i === currentIndex){
+        classDaUsare = "display_block";
+    }
 
-    //inserisco all'interno del container i tag img, in modo da visualizzare le immagini
-    currentImageContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}"> 
-                                        <div class="text_section">
+
+    //inserisco all'interno del container i tag img e la sezione di testo con titlo e descrizione in modo da visualizzarli
+    //per assegnare la classe con display block all'immagine e alla sezione di testo che voglio siano visualizzate mi basta inserire
+    //la variabile classeDaUsare con l'innerHTML. Se l'indice ciclato è uguale a quello deciso da me allora la classe si riempirà
+    //della stringa (uguale alla classe scritta in css) e gli elementi saranno visualizzati
+    currentImageContainer.innerHTML += `<img class="${classDaUsare}" src="${currentImage}" alt="immagine #${i + 1}"> 
+                                        <div class="${classDaUsare} text_section">
                                         <h1>${currentTitle}</h1>
                                         <p>${currentText}</p>
                                         </div>`;
-    imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}">`
+    imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${i + 1}">`
 }
-
+console.log(currentImageContainer);
