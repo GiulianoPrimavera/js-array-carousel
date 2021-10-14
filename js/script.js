@@ -84,9 +84,12 @@ arrowDown.addEventListener("click", function(){
     currentIndex++;
 
     //se il currentIndex arriva ad un valore maggiore della lunghezza dell'array delle immagini allora lo resetto a 0
-    if(currentIndex > items.length && currentIndex > title.length && currentIndex > text.length ){
+    if(currentIndex > items.length - 1 && currentIndex > title.length - 1 && currentIndex > text.length - 1 ){
         currentIndex = 0;
     }
     
-
+    const newCurrentImage = document.querySelectorAll("img")[currentIndex];
+    const newCurrentText = document.querySelectorAll(".text_section")[currentIndex]
+    newCurrentImage.classList.add("display_block");
+    newCurrentText.classList.add("display_block");
 })
