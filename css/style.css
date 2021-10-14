@@ -46,7 +46,6 @@
 .arrow_container{
     width: 20%;
     position: relative;
-    text-align: center;
 }
 
 .image_list_container > img{
@@ -72,6 +71,7 @@ img.display_block{
     display: inline-block;
     color: white;
     line-height: 30px;
+    text-align: center;
 }
 .upward_arrow{
     top: 0;
