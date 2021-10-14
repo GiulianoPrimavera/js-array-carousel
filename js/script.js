@@ -25,19 +25,16 @@ const text = [
 
 //dichiaro una variabile che si riferisce al container della immagine attualmente visualizzata
 const currentImageContainer = document.querySelector (".current_image_container");
-
+//dichiaro una variabile che si riferisce al container laterale delle immagini in miniatura
+const imageListContainer = document.querySelector(".image_list_container")
 
 //creo un ciclo che mette le immagini nell'html
 for(let i = 0; i < items.length; i++){
     //assegno all'immagine corrente una variabile
     const currentImage = items[i];
 
-    //inserisco all'interno del container dell'immagine (precedentemente dichiarato) il tag img, in modo da visualizzare le immagini
+    //inserisco all'interno del container i tag img, in modo da visualizzare le immagini
     currentImageContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}">`;
+    imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}">`
 }
 
-const imageListContainer = document.querySelector(".image_list_container")
-
-for (let i = 0; i < items.length; i++){
-    imageListContainer.innerHTML += `<img src="${items[i]}" alt="immagine #${items[i]}">`
-}
