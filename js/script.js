@@ -73,18 +73,20 @@ arrowDown.addEventListener("click", function(){
     
     //creo una variabile per ritrovare l'elemento visibile (class="display_block")
     const currentImage = document.querySelector(".display_block");
+    const currentText = document.querySelector(".text_section.display_block")
     
+
     //rimuovo la classe display_block all'elemento corrente
     currentImage.classList.remove("display_block");
+    currentText.classList.remove("display_block")
 
     //aumento di uno il currentIndex specificato all'inizio
     currentIndex++;
 
     //se il currentIndex arriva ad un valore maggiore della lunghezza dell'array delle immagini allora lo resetto a 0
-    if(currentIndex > items.length){
+    if(currentIndex > items.length && currentIndex > title.length && currentIndex > text.length ){
         currentIndex = 0;
     }
-
-    console.log(currentIndex);
+    
 
 })
