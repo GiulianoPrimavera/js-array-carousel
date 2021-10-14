@@ -32,7 +32,7 @@ const imageListContainer = document.querySelector(".image_list_container");
 let currentIndex = 0;
 
 //creo un ciclo che mette le immagini nell'html
-for(let i = 0; i < items.length && i < title.length && i < text.length ; i++){
+for(let i = 0; i < items.length; i++){
     //assegno all'immagine, titolo e testo corrente una variabile
     const currentImage = items[i];
     const currentTitle = title[i];
@@ -58,8 +58,8 @@ for(let i = 0; i < items.length && i < title.length && i < text.length ; i++){
                                         <p>${currentText}</p>
                                         </div>`;
     imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${i + 1}">`;
-}
-console.log(currentImageContainer);
+};
+
 
 
 //*QUI LAVORO CON GLI EVENTLISTENER PER SPOSTARE IL CURRENTINDEX DA ELEMENTO A ELEMENTO
@@ -67,6 +67,37 @@ console.log(currentImageContainer);
 const arrowUp = document.querySelector(".upward_arrow");
 const arrowDown = document.querySelector(".downward_arrow");
 
+
+arrowUp.addEventListener("click", function(){
+    //quando clicco sulla freccia Up voglio che la classe .display_block venga rimossa
+    // dagli elementi correnti e vengano aggiunti agli elementi precedenti
+    
+    //creo una variabile per ritrovare l'elemento visibile (class="display_block")
+    const currentImage = document.querySelector(".display_block");
+    const currentText = document.querySelector(".text_section.display_block")
+    
+
+    //rimuovo la classe display_block all'elemento corrente
+    currentImage.classList.remove("display_block");
+    currentText.classList.remove("display_block")
+
+    //diminuisco di uno il currentIndex specificato all'inizio
+    currentIndex--;
+
+   
+    //se il currentIndex arriva allora lo faccio ripartire dall'ultimo numero degli array
+    if(currentIndex < 0){
+        currentIndex = items.length - 1;
+    }
+    console.log( currentIndex);
+    //associo delle variabili agli elementi precedenti che voglio visualizzare ricercandoli tramite il currentIndex e aggiungendo la classe display_block
+    const newCurrentImage = document.querySelectorAll("img")[currentIndex];
+    const newCurrentText = document.querySelectorAll(".text_section")[currentIndex]
+    newCurrentImage.classList.add("display_block");
+    newCurrentText.classList.add("display_block");
+});
+
+//se clicco la freccia in giù eseguo queste operazioni
 arrowDown.addEventListener("click", function(){
     //quando clicco sulla freccia Down voglio che la classe .display_block venga rimossa
     // dagli elementi correnti e vengano aggiunti agli elementi successivi
@@ -84,12 +115,16 @@ arrowDown.addEventListener("click", function(){
     currentIndex++;
 
     //se il currentIndex arriva ad un valore maggiore della lunghezza dell'array delle immagini allora lo resetto a 0
-    if(currentIndex > items.length - 1 && currentIndex > title.length - 1 && currentIndex > text.length - 1 ){
+    if(currentIndex > items.length - 1){
         currentIndex = 0;
     }
     
+
+    //associo delle variabili agli elementi successivi che voglio visualizzare ricercandoli tramite il currentIndex e aggiungendo la classe display_block
     const newCurrentImage = document.querySelectorAll("img")[currentIndex];
     const newCurrentText = document.querySelectorAll(".text_section")[currentIndex]
     newCurrentImage.classList.add("display_block");
     newCurrentText.classList.add("display_block");
-})
+});
+
+console.log(currentImageContainer)
