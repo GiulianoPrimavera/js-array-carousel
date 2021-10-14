@@ -29,12 +29,19 @@ const currentImageContainer = document.querySelector (".current_image_container"
 const imageListContainer = document.querySelector(".image_list_container")
 
 //creo un ciclo che mette le immagini nell'html
-for(let i = 0; i < items.length; i++){
+for(let i = 0; i < items.length && i < title.length && i < text.length ; i++){
     //assegno all'immagine corrente una variabile
     const currentImage = items[i];
+    const currentTitle = title[i];
+    const currentText = text[i];
+    
 
     //inserisco all'interno del container i tag img, in modo da visualizzare le immagini
-    currentImageContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}">`;
+    currentImageContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}"> 
+                                        <div class="text_section">
+                                        <h1>${currentTitle}</h1>
+                                        <p>${currentText}</p>
+                                        </div>`;
     imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${currentImage}">`
 }
 
