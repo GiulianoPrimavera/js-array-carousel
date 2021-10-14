@@ -26,7 +26,7 @@ const text = [
 //dichiaro una variabile che si riferisce al container della immagine attualmente visualizzata
 const currentImageContainer = document.querySelector (".current_image_container");
 //dichiaro una variabile che si riferisce al container laterale delle immagini in miniatura
-const imageListContainer = document.querySelector(".image_list_container")
+const imageListContainer = document.querySelector(".image_list_container");
 
 //creo una variabile che tenga conto della "posizione" iniziale, ossia di quale immagine voglio mostrare all'avvio del sito (senza questo tutte le immagini sono in display none)
 let currentIndex = 0;
@@ -57,6 +57,34 @@ for(let i = 0; i < items.length && i < title.length && i < text.length ; i++){
                                         <h1>${currentTitle}</h1>
                                         <p>${currentText}</p>
                                         </div>`;
-    imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${i + 1}">`
+    imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${i + 1}">`;
 }
 console.log(currentImageContainer);
+
+
+//*QUI LAVORO CON GLI EVENTLISTENER PER SPOSTARE IL CURRENTINDEX DA ELEMENTO A ELEMENTO
+//creo le variabili a cui "collego" i due elementi freccia creati in html e css
+const arrowUp = document.querySelector(".upward_arrow");
+const arrowDown = document.querySelector(".downward_arrow");
+
+arrowDown.addEventListener("click", function(){
+    //quando clicco sulla freccia Down voglio che la classe .display_block venga rimossa
+    // dagli elementi correnti e vengano aggiunti agli elementi successivi
+    
+    //creo una variabile per ritrovare l'elemento visibile (class="display_block")
+    const currentImage = document.querySelector(".display_block");
+    
+    //rimuovo la classe display_block all'elemento corrente
+    currentImage.classList.remove("display_block");
+
+    //aumento di uno il currentIndex specificato all'inizio
+    currentIndex++;
+
+    //se il currentIndex arriva ad un valore maggiore della lunghezza dell'array delle immagini allora lo resetto a 0
+    if(currentIndex > items.length){
+        currentIndex = 0;
+    }
+
+    console.log(currentIndex);
+
+})
