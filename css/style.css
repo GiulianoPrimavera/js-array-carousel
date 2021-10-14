@@ -42,13 +42,15 @@
     overflow: auto;
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .arrow_container{
     width: 20%;
     position: relative;
 }
 
-.image_list_container > img{
+.image_list_container >  img{
     width: 100%;
 }
 
@@ -71,10 +73,17 @@ img.display_block{
     color: white;
     line-height: 30px;
     text-align: center;
+    z-index: 99;
 }
 .upward_arrow{
     top: 0;
 }
 .downward_arrow{
     bottom: 0;
+}
+
+
+/** creo la classe per evidenziare le immagini della lista laterale */
+.highlighted{
+    border: 5px solid lightblue;
 }

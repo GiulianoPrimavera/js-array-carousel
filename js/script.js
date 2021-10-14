@@ -40,11 +40,12 @@ for(let i = 0; i < items.length; i++){
     
     //creo una varibile a cui posso assegnare un valore(stringa), uguale alla classe con display block creata da me in css
     let classDaUsare = "";
-    
+    let classHighlightned = "";
     //nel caso l'indice ciclato sia uguale al currentIndex, deciso da me fuori dal ciclo "for",
     //allora assegno a questa variabile la stringa uguale alla classe con display block creata in css
     if (i === currentIndex){
         classDaUsare = "display_block";
+        classHighlightned = "highlighted";
     }
 
 
@@ -57,7 +58,7 @@ for(let i = 0; i < items.length; i++){
                                         <h1>${currentTitle}</h1>
                                         <p>${currentText}</p>
                                         </div>`;
-    imageListContainer.innerHTML += `<img src="${currentImage}" alt="immagine #${i + 1}">`;
+    imageListContainer.innerHTML += `<img class="${classHighlightned}" src="${currentImage}" alt="immagine #${i + 1}">`;
 };
 
 
@@ -74,12 +75,13 @@ arrowUp.addEventListener("click", function(){
     
     //creo una variabile per ritrovare l'elemento visibile (class="display_block")
     const currentImage = document.querySelector(".display_block");
-    const currentText = document.querySelector(".text_section.display_block")
-    
+    const currentText = document.querySelector(".text_section.display_block");
+    const currentListImage = document.querySelector(".highlighted");
 
     //rimuovo la classe display_block all'elemento corrente
     currentImage.classList.remove("display_block");
-    currentText.classList.remove("display_block")
+    currentText.classList.remove("display_block");
+    currentListImage.classList.remove("highlighted");
 
     //diminuisco di uno il currentIndex specificato all'inizio
     currentIndex--;
@@ -93,8 +95,10 @@ arrowUp.addEventListener("click", function(){
     //associo delle variabili agli elementi precedenti che voglio visualizzare ricercandoli tramite il currentIndex e aggiungendo la classe display_block
     const newCurrentImage = document.querySelectorAll("img")[currentIndex];
     const newCurrentText = document.querySelectorAll(".text_section")[currentIndex]
+    const newCurrentListImage = document.querySelectorAll(".image_list_container img")[currentIndex];
     newCurrentImage.classList.add("display_block");
     newCurrentText.classList.add("display_block");
+    newCurrentListImage.classList.add("highlighted");
 });
 
 //se clicco la freccia in giù eseguo queste operazioni
@@ -104,12 +108,14 @@ arrowDown.addEventListener("click", function(){
     
     //creo una variabile per ritrovare l'elemento visibile (class="display_block")
     const currentImage = document.querySelector(".display_block");
-    const currentText = document.querySelector(".text_section.display_block")
+    const currentText = document.querySelector(".text_section.display_block");
+    const currentListImage = document.querySelector(".highlighted");
     
 
     //rimuovo la classe display_block all'elemento corrente
     currentImage.classList.remove("display_block");
-    currentText.classList.remove("display_block")
+    currentText.classList.remove("display_block");
+    currentListImage.classList.remove("highlighted");
 
     //aumento di uno il currentIndex specificato all'inizio
     currentIndex++;
@@ -122,9 +128,9 @@ arrowDown.addEventListener("click", function(){
 
     //associo delle variabili agli elementi successivi che voglio visualizzare ricercandoli tramite il currentIndex e aggiungendo la classe display_block
     const newCurrentImage = document.querySelectorAll("img")[currentIndex];
-    const newCurrentText = document.querySelectorAll(".text_section")[currentIndex]
+    const newCurrentText = document.querySelectorAll(".text_section")[currentIndex];
+    const newCurrentListImage = document.querySelectorAll(".image_list_container img")[currentIndex];
     newCurrentImage.classList.add("display_block");
     newCurrentText.classList.add("display_block");
+    newCurrentListImage.classList.add("highlighted");
 });
-
-console.log(currentImageContainer)
