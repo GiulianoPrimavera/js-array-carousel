@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 100vw;
+    border: 1px solid;
+    min-height: 300px;
+    display: flex;
+}
+
+.current_image{
+    width: 80%;
+    border: 1px solid black;
+    min-height: 100%;
+}
+
+.image_list{
+    width: 20%;
+    border: 1px solid black;
+    min-height: 100%;
+}
