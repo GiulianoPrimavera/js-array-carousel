@@ -44,6 +44,7 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: black;
 }
 .arrow_container{
     width: 20%;
@@ -52,6 +53,7 @@ body{
 
 .image_list_container >  img{
     width: 100%;
+    opacity: .7;
 }
 
 /** mostro l'immagine, il titolo e il testo che hanno il current index */
@@ -84,6 +86,7 @@ img.display_block{
 
 
 /** creo la classe per evidenziare le immagini della lista laterale */
-.highlighted{
-    border: 10px solid rgb(218, 146, 117);
+.image_list_container >  img.highlighted{   
+    opacity: 1;
+    border: 2px solid blanchedalmond;
 }
