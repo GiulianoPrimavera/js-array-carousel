@@ -10,14 +10,12 @@ body{
 
 .container{
     width: 100%;
-    border: 1px solid;
     height: 500px;
     display: flex;
 }
 
 .current_image_container{
     width: 80%;
-    border: 1px solid black;
     min-height: 100%;
     position: relative;
 }
@@ -40,7 +38,6 @@ body{
 }
 
 .image_list_container{
-    border: 1px solid black;
     min-height: 100%;
     overflow: auto;
     width: 100%;
